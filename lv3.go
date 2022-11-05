@@ -24,15 +24,19 @@ func main() {
 	var str string
 	str = "I’m not afraid of difficulties and insist on learning programming"
 	_, _ = io.WriteString(file, str)
-	var ReAd []byte
-	buf := make([]byte, 114514)
-	for {
-		n, _ := file.Read(buf)
-		if n == 0 {
-			break
-		}
-		ReAd = append(ReAd, buf[:n]...)
-	}
-	fmt.Println(string(ReAd))
-	defer file.Close()
+	//var ReAd []byte
+	//buf := make([]byte, 114514)
+	//for {
+	//	n, _ := file.Read(buf)
+	//	if n == 0 {
+	//		break
+	//	}
+	//	ReAd = append(ReAd, buf[:n]...)
+	//}
+	//fmt.Println(string(ReAd))
+	//defer file.Close()
+	a, _ := os.Open("H:/GoProjects/work3/plan.txt")
+	b := make([]byte, len(str))
+	_, _ = a.Read(b)
+	fmt.Println(string(b))
 }
